@@ -10,5 +10,8 @@ router.get('/signup', publicAccess, (req,res)=>{
   res.render('signup.handlebars')
 })
 
+router.get('/act', (req, res)=>{
+  res.render('editProd.handlebars')
+})
 
 module.exports = router

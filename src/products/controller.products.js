@@ -1,7 +1,10 @@
 const { Router } = require("express");
 const router = Router();
-const Product = require("../models/products.models");
+/* const Product = require("../models/products.models");*/
+const ProductsMongoDao = require("../dao/mongo/products.mongo");
 const privateAccess = require("../utils/middlewares/privateAcces");
+
+const Product = new ProductsMongoDao()
 
 router.get("/", privateAccess, async (req, res) => {
   const { orderBy, type, brand, size, page, perPage,  } = req.query;
@@ -32,7 +35,6 @@ router.get("/", privateAccess, async (req, res) => {
       type
     }))
     res.render('products.handlebars',{ productsMapped, user });
-
   } catch (error) {
     console.log(error);
   }

@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const Cart = require("../models/cart.model");
+const Cart = require("../dao/mongo/models/cart.model");
 
 router.get("/", async (req, res) => {
   const carts = await Cart.find()

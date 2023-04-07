@@ -1,6 +1,6 @@
 const {Router} = require('express')
 const passport = require('passport')
-const User = require('../models/user.model')
+const User = require('../dao/mongo/models/user.model')
 const { createHash } = require('../utils/middlewares/cryptPassword')
 
 const router = Router()
