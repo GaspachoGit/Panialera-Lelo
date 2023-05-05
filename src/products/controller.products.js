@@ -27,12 +27,14 @@ router.get("/", privateAccess, async (req, res) => {
 
   try {
     const products = await Product.paginate(query, options);
-    const productsMapped = products.docs.map(({name, description, unitPrice, type, _id})=>({
+    const productsMapped = products.docs.map(({name, description, unitPrice, type, _id, img, stock})=>({
       id: _id,
       name,
       description,
       unitPrice,
-      type
+      type,
+      img,
+      stock
     }))
     res.render('products.handlebars',{ productsMapped, user });
   } catch (error) {
@@ -40,18 +42,20 @@ router.get("/", privateAccess, async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
-  const { type, brand, size, name, description, img, unitPrice, boxPrice, stock} = req.body;
+router.post("/", privateAccess,async (req, res) => {
+  const product = req.body
+/*   const { type, brand, size, name, description, img, unitPrice, boxPrice, stock} = req.body;
   const product = { type, brand, size, name, description, img, unitPrice, boxPrice, stock};
-  try {
+ */  try {
     await Product.create(product);
+    console.log('Producto añadido correctamente')
     res.status(201).json({ msj: "product added" });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({msj: error})
   }
 });
 
-router.patch('/:pid', async(req,res)=>{
+router.patch('/:pid', privateAccess,async(req,res)=>{
   const campos = req.body
   const {pid} = req.params
   
@@ -59,7 +63,8 @@ router.patch('/:pid', async(req,res)=>{
 /*   const update = {unitPrice:unitPrice} */
 
   try {
-    await Product.updateOne(filter, {$set:campos}) 
+    await Product.updateProduct(filter, {$set:campos}) 
+    console.log('producto actualizado correctamente')
     res.send('Product updated')
   } catch (error) {
     console.log(error)
@@ -67,8 +72,34 @@ router.patch('/:pid', async(req,res)=>{
 
 })
 
-router.delete("/", async (req, res) => {
+router.delete("/", privateAccess,async (req, res) => {
   await Product.deleteMany();
   res.send("productos eliminados");
 });
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const deletedProduct = await Product.deleteProductById(productId);
+
+    if (!deletedProduct) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    res.status(200).json({ message: 'Product deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+router.get('/:pid/update', privateAccess,async(req, res)=>{
+  const {pid} = req.params
+  const data = await Product.findOne(pid)
+  res.render('editProd.handlebars', data)
+})
+
+router.get('/addProds', async (req, res)=>{
+  res.render('addProduct.handlebars')
+})
 module.exports = router;

@@ -22,17 +22,149 @@ h1{
 li {
   list-style-type: none;
 }
-.productBox{
-  display: flex;
-  border: 1px solid black;
-  background-color: rgb(187, 165, 225);
-  padding-bottom: 2rem;
-  width: 30%;
-  margin: 3rem 3rem 3rem 1rem;
-  justify-content: center;
-  border-radius: 1rem;
-}
+
 
 h3{
   font-size: 30px;
 }
+
+/* Estilos para el formulario */
+#addProdForm {
+  max-width: 400px; /* Ancho máximo del formulario */
+  margin: 0 auto; /* Centrar horizontalmente el formulario */
+}
+#editForm {
+  max-width: 400px; /* Ancho máximo del formulario */
+  margin: 0 auto;
+}
+
+.form-label {
+  display: block; /* Mostrar etiquetas en bloque (verticalmente) */
+  margin-bottom: 5px; /* Espacio entre etiquetas */
+}
+
+.form-input {
+  width: 100%; /* Ancho del 100% para ocupar todo el espacio disponible */
+  padding: 8px; /* Espacio interno de los campos de entrada */
+  margin-bottom: 10px; /* Espacio entre campos de entrada */
+}
+
+.form-button {
+  display: block; /* Mostrar botón en bloque (verticalmente) */
+  width: 100%; /* Ancho del 100% para ocupar todo el espacio disponible */
+  padding: 10px; /* Espacio interno del botón */
+  margin-top: 10px; /* Espacio entre el botón y los campos de entrada */
+  background-color: #007bff; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  border: none; /* Sin borde en el botón */
+  cursor: pointer; /* Cambiar cursor al pasar por encima del botón */
+}
+
+.form-button:hover {
+  background-color: #0056b3; /* Cambiar color de fondo del botón al pasar por encima */
+}
+
+/* Estilos para la etiqueta select */
+.form-select {
+  width: 100%; /* Ancho del 100% para ocupar todo el espacio disponible */
+  padding: 8px; /* Espacio interno de la etiqueta select */
+  margin-bottom: 10px; /* Espacio entre etiqueta select y otros elementos */
+  background-color: #fff; /* Color de fondo de la etiqueta select */
+  color: #000; /* Color del texto de la etiqueta select */
+  border: 1px solid #ccc; /* Borde de la etiqueta select */
+  border-radius: 4px; /* Bordes redondeados de la etiqueta select */
+}
+
+.form-select:focus {
+  outline: none; /* Quitar el contorno al hacer clic en la etiqueta select */
+  border-color: #007bff; /* Cambiar color del borde al hacer clic en la etiqueta select */
+}
+
+/* Styles para mostrar productos */
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product-item {
+  flex-basis: calc(33.33% - 20px); /* ajusta el tamaño de la tarjeta */
+  margin-bottom: 20px; /* ajusta el espacio entre las tarjetas */
+  display: flex; /* Agrega display: flex para alinear los elementos en la tarjeta */
+  align-items: center; /* Agrega align-items: center para centrar verticalmente los elementos */
+  background-color: #F8D7DB; /* Color de fondo para pañalera */
+  padding: 10px;
+}
+
+.product-item img {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.product-item li {
+  list-style-type: none;
+}
+
+.product-item h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-item h4 {
+  margin: 5px 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.product-item p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.product-item .btn-add-to-cart {
+  margin-top: 10px;
+  background-color: #E74C3C; /* Color de fondo para botón "Añadir al carrito" */
+  color: #FFF;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.product-item .btn-add-to-cart:hover {
+  background-color: #C0392B; /* Color de fondo en hover para botón "Añadir al carrito" */
+}
+
+.product-item a {
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.product-item button {
+  background-color: #3498DB; /* Color de fondo para botón "Editar producto" */
+  color: #FFF;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.product-item button:hover {
+  background-color: #2980B9; /* Color de fondo en hover para botón "Editar producto" */
+}
+
+.btn-custom {
+  height: 25vh;
+  width: 60vh;
+  line-height: 25vh;
+  font-size: 3rem;
+  margin: 2vh;
+}
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.2rem;
+}
+

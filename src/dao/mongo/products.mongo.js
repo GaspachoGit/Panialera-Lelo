@@ -23,8 +23,7 @@ class ProductsMongoDao {
 
 	async create(product) {
 		try {
-			const newProduct = await Product.create(product)
-			return newProduct
+			return await Product.create(product)
 		} catch (error) {
 			return error
 		}
@@ -50,6 +49,23 @@ class ProductsMongoDao {
 			return error
 		}
 	}
+	async findOne(id){
+		try {
+			const product =  await Product.findOne({_id: id})
+			return product
+		} catch (error) {
+			return error
+		}
+	}
+	async deleteProductById(id) {
+    try {
+      const deletedProduct = await Product.findByIdAndDelete(id);
+      return deletedProduct;
+    } catch (error) {
+      throw new Error(`Could not delete product: ${error.message}`);
+    }
+  }
+
 }
 
 module.exports = ProductsMongoDao;

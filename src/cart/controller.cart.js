@@ -1,13 +1,14 @@
 const { Router } = require("express");
 const router = Router();
 const Cart = require("../dao/mongo/models/cart.model");
+const privateAccess = require("../utils/middlewares/privateAcces");
 
-router.get("/", async (req, res) => {
+router.get("/", privateAccess,async (req, res) => {
   const carts = await Cart.find()
   res.json({ msj: carts });
 });
 
-router.get('/:cid', async (req,res)=>{
+router.get('/:cid', privateAccess,async (req,res)=>{
   const {cid} = req.params
   try {
     const cart = await Cart.findOne({_id: cid}).populate('products.product')
@@ -30,7 +31,7 @@ router.get('/:cid', async (req,res)=>{
   }
 })
 
-router.post('/', async(req,res)=>{
+router.post('/',privateAccess ,async(req,res)=>{
   const {productId, quantity} = req.body
   const cart = {
     productId,
@@ -46,7 +47,7 @@ router.post('/', async(req,res)=>{
   }
 })
 
-router.patch('/:cartId/products/:productId', async (req, res) => {
+router.patch('/:cartId/products/:productId', privateAccess, async (req, res) => {
   const { cartId, productId } = req.params;
   const { cantidad } = req.body;
   let quantity = cantidad
@@ -71,7 +72,7 @@ router.patch('/:cartId/products/:productId', async (req, res) => {
 })
 
 
-router.delete('/:cartId/products/:productId', async (req, res) => {
+router.delete('/:cartId/products/:productId', privateAccess,async (req, res) => {
   const { cartId, productId } = req.params;
 
   try {
@@ -91,7 +92,7 @@ router.delete('/:cartId/products/:productId', async (req, res) => {
   }
 });
 
-router.patch('/:cartId', async(req,res)=>{
+router.patch('/:cartId',privateAccess ,async(req,res)=>{
   const {cartId} = req.params
   const products = req.body
 
@@ -109,7 +110,7 @@ router.patch('/:cartId', async(req,res)=>{
   }
 })
 
-router.delete('/:cartId', async (req,res)=>{
+router.delete('/:cartId', privateAccess,async (req,res)=>{
   const {cartId} = req.params
   try {
     const result = await Cart.updateOne(

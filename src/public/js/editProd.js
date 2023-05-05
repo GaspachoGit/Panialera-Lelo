@@ -1,22 +1,31 @@
-const form = document.querySelector("#editForm");
+const form = document.getElementById('editForm'); // Obtener el formulario por su id
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  
+  const data = new FormData(form)
+  const obj = {}
+  data.forEach((value,key)=> {
+    if (value) {
+      obj[key] = value
+    }
+  } )
 
-  const formData = new FormData(event.target);
-  const data = Object.fromEntries(formData.entries());
-
-  const response = await fetch("/ruta/para/actualizar/producto", {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-
-  if (response.ok) {
-    console.log("Producto actualizado");
-  } else {
-    console.error("Error al actualizar el producto");
+  const productId = e.target.querySelector('button[type="submit"]').dataset.productId;
+  const url = `http://localhost:8080/api/products/${productId}`
+  const headers = {
+    'Content-Type': 'application/json'
   }
+  const method = 'PATCH'
+  const body = JSON.stringify(obj)
+
+  fetch(url, {
+    headers,
+    method,
+    body
+  })
+  .then(response => response.json)
+  .then(data => console.log(data))
+  .catch(err=> console.log(err))
+
 });

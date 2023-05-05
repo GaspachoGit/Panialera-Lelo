@@ -1,5 +1,6 @@
 const {Router} = require('express')
 const publicAccess = require('../utils/middlewares/publicAcces')
+const privateAccess = require('../utils/middlewares/privateAcces')
 
 const router = Router()
 
@@ -9,9 +10,9 @@ router.get('/login', publicAccess, (req,res)=>{
 router.get('/signup', publicAccess, (req,res)=>{
   res.render('signup.handlebars')
 })
-
-router.get('/act', (req, res)=>{
-  res.render('editProd.handlebars')
+router.get('/main',privateAccess, (req,res)=>{
+  res.render('api.handlebars')
 })
+
 
 module.exports = router

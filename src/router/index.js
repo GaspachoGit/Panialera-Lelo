@@ -9,7 +9,7 @@ const authController = require('../auth/controller.auth')
 const router = (app) => {
   app.use('/api/products', productsController)
   app.use('/api/carts', cartController)
-  app.use('/box', boxController)
+  app.use('/api/box', boxController)
   app.use('/wholesalers', wholesalersController)
   app.use('/users', usersController)
   app.use('/', viewsTemplateController)
