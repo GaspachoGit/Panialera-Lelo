@@ -4,8 +4,7 @@ const privateAccess = require('../utils/middlewares/privateAcces')
 const router = Router()
 
 
-router.get('/', privateAccess,async(req,res)=>{
-  const sold = req.body
+router.get('/'/* , privateAccess */,async(req,res)=>{
   try {
     const totalBox = await Box.find()
     res.status(200).json({msj: totalBox})
@@ -14,7 +13,7 @@ router.get('/', privateAccess,async(req,res)=>{
   }
 })
 
-router.post('/post', privateAccess,async (req, res)=>{
+router.post('/post', /* privateAccess, */async (req, res)=>{
   const acc = 0
   const dailySolds = 0
   const monthlySold = 0
@@ -26,15 +25,15 @@ router.post('/post', privateAccess,async (req, res)=>{
   }
 })
 
-router.patch('/:bid', privateAccess,async(req, res)=>{
+router.patch('/:bid', async(req, res)=>{
   const {price} = req.body
   const filter = req.params.bid
   try {
     const box = await Box.findById(filter)
+    console.log(box.acc)
     const newAcc = box.acc + price 
     console.log(newAcc)
-    const update = {$set: {acc: newAcc}}
-    const sold = await Box.updateOne({_id: filter}, update)
+    const sold = await Box.updateOne({_id: filter}, {$set: {acc: newAcc}})
     res.status(200).json({msj: sold})
   } catch (error) {
     res.status(500).json({msj: error})

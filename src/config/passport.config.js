@@ -83,7 +83,7 @@ const initializePassport = () => {
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
-          console.log(profile);
+          
           const user = await User.findOne({ email: profile._json.email });
 
           if (!user) {

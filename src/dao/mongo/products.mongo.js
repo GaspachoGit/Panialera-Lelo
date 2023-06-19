@@ -21,7 +21,7 @@ class ProductsMongoDao {
 		}
 	}
 
-	async create(product) {
+	async created(product) {
 		try {
 			return await Product.create(product)
 		} catch (error) {

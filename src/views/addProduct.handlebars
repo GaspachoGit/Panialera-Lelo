@@ -1,16 +1,31 @@
 <h1>Añadir producto nuevo</h1>
 <form id="addProdForm" class="form-container">
 
-  <label for="name" class="form-label">Nombre</label>
-  <input type="text" name="name" required class="form-input" />
 
-  <label for="brand" class="form-label">Marca</label>
-  <input type="text" name="brand" required class="form-input" />
+  <label for="type" class="form-label">Marca</label>
+  <select name="brand" id="brand" required class="form-select">
+    <option value="Babysec">Babysec</option>
+    <option value="Pumppers">Pumppers</option>
+    <option value="Huguies humedas">Huguies</option>
+    <option value="Doncella">Doncella</option>
+    <option value="Estrella">Estrella</option>
+    <option value="Ladysoft">Ladysoft</option>
+  </select>
 
-  <label for="type" class="form-label">Tipo de producto</label>
-  <input type="text" name="type" required class="form-input" />
 
-  <label for="size" class="form-label">Tamaño</label>
+  <label for="brand" class="form-label">Tipo de producto</label>
+  <select name="type" id="type" required class="form-select">
+    <option value="Pañal">Pañal</option>
+    <option value="Oleo">Oleo</option>
+    <option value="Toallitas humedas">Toallitas humedas</option>
+    <option value="Algodon">Algodon</option>
+    <option value="Apositos">Apósitos</option>
+    <option value="Protectores mamarios">Protector mamario</option>
+    <option value="Toallitas femeninas">Toallita femenina</option>
+  </select>
+
+
+  <label for="size" class="form-label">Talle</label>
   <select name="size" id="size" required class="form-select">
     <option value="undefined">Undefined</option>
     <option value="RN">RN</option>
@@ -22,6 +37,9 @@
     <option value="XXG">XXG</option>
   </select>
 
+  <label for="name" class="form-label">Nombre</label>
+  <input type="text" name="name" required class="form-input" />
+
   <label for="description" class="form-label">Descripción</label>
   <input type="text" name="description" required class="form-input" />
 
@@ -31,7 +49,7 @@
   <label for="unitPrice" class="form-label">Precio unitario</label>
   <input type="number" name="unitPrice" required class="form-input" />
 
-  <label for="boxPrice" class="form-label">Precio por caja</label>
+  <label for="boxPrice" class="form-label">Cantidad por caja</label>
   <input type="number" name="boxPrice" required class="form-input" />
 
   <label for="stock" class="form-label">Stock</label>

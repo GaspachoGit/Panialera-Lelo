@@ -12,15 +12,21 @@ const BoxSchema = new mongoose.Schema({
 			type: Date,
 			default: Date.now
 		},
-		sold:{
+		amount:{
 			type: Number,
 			default: 0
 		}
 	}],
-	monthlySold: {
+	monthlySold: [{
+		amount:{
 		type: Number,
 		default: 0
-	}
+		},
+		date:{
+			type: Date,
+			default:0
+		}
+		}]
 
 })
 

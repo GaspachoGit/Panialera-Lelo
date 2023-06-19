@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const router = Router();
-/* const Product = require("../models/products.models");*/
 const ProductsMongoDao = require("../dao/mongo/products.mongo");
 const privateAccess = require("../utils/middlewares/privateAcces");
 
@@ -44,11 +43,9 @@ router.get("/", privateAccess, async (req, res) => {
 
 router.post("/", privateAccess,async (req, res) => {
   const product = req.body
-/*   const { type, brand, size, name, description, img, unitPrice, boxPrice, stock} = req.body;
-  const product = { type, brand, size, name, description, img, unitPrice, boxPrice, stock};
- */  try {
+  try {
+    
     await Product.create(product);
-    console.log('Producto añadido correctamente')
     res.status(201).json({ msj: "product added" });
   } catch (error) {
     res.status(500).json({msj: error})
