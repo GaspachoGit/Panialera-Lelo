@@ -8,7 +8,6 @@ const Product = new ProductsMongoDao()
 router.get("/", privateAccess, async (req, res) => {
   const { orderBy, type, brand, size, page, perPage,  } = req.query;
   const {user} = req.session
-  console.log(req.session.user)
   const query={}//Solamente deseo filtrar por esos campos
   if(type) query.type = type
   if(brand) query.brand = brand

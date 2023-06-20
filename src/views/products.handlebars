@@ -1,5 +1,47 @@
 
 <h1>Productos</h1>
+<form id="filter-form">
+  <label for="type">Tipo:</label>
+  <select name="type" id="type">
+    <option value="">Todos</option>
+    <option value="Pañal">Pañal</option>
+    <option value="Oleo">Óleo</option>
+    <option value="Toallitas humedas">Toallitas húmedas</option>
+    <option value="Algodon">Algodón</option>
+    <option value="Apositos">Apósitos</option>
+    <option value="Protectores mamarios">Protectores mamarios</option>
+    <option value="Toallitas femeninas">Toallitas femeninas</option>
+    <!-- Agrega las opciones de tipo que necesites -->
+  </select>
+
+  <label for="brand">Marca:</label>
+  <select name="brand" id="brand">
+    <option value="">Todas</option>
+    <option value="Babysec">Babysec</option>
+    <option value="Pumppers">Pumppers</option>
+    <option value="Huguies">Huguies</option>
+    <option value="Doncella">Doncella</option>
+    <option value="Estrella">Estrella</option>
+    <option value="Ladysoft">Ladysoft</option>
+    <!-- Agrega las opciones de marca que necesites -->
+  </select>
+
+  <label for="size">Tamaño:</label>
+  <select name="size" id="size">
+    <option value="">Todos</option>
+    <option value="RN">RN</option>
+    <option value="RN+">RN+</option>
+    <option value="P">P</option>
+    <option value="M">M</option>
+    <option value="G">G</option>
+    <option value="XG">XG</option>
+    <option value="XXG">XXG</option>
+    <!-- Agrega las opciones de tamaño que necesites -->
+  </select>
+
+  <button type="submit">Filtrar</button>
+</form>
+
 <div class="product-container">
   {{#each productsMapped}}
     <div class="product-item">
