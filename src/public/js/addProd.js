@@ -6,7 +6,6 @@ form.addEventListener("submit", (e) => {
   const data = new FormData(form);
   const obj = {};
   data.forEach((value, key) => (obj[key] = value));
-	console.log(obj)
   const url = `http://localhost:8080/api/products`;
   const headers = {
     "Content-Type": "application/json",

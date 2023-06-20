@@ -44,8 +44,7 @@ router.get("/", privateAccess, async (req, res) => {
 router.post("/", privateAccess,async (req, res) => {
   const product = req.body
   try {
-    
-    await Product.create(product);
+    await Product.created(product);
     res.status(201).json({ msj: "product added" });
   } catch (error) {
     res.status(500).json({msj: error})
