@@ -38,7 +38,7 @@ const productSchema = mongoose.Schema({
   description: String,
   img: String,
   unitPrice: Number,
-  boxPrice: Number,
+  boxQuantity: Number,
   stock: Number,
 });
 
