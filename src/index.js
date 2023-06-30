@@ -40,7 +40,12 @@ initializePassport()
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.engine("handlebars", handlebars.engine());
+app.engine("handlebars", handlebars.engine({
+    defaultLayout: 'main',
+  runtimeOptions: {
+    allowProtoPropertiesByDefault: true,
+  },
+}));
 
 
 app.set("views", __dirname + "/views");

@@ -8,4 +8,13 @@
 	<button type="submit">Actualizar</button>
 </form>
 
+ <h3>Ventas Diarias:</h3>
+  <ul>
+    {{#each daily}}
+    <li>Fecha: {{this.date}}, Venta: {{this.amount}}</li>
+    {{/each}}
+  </ul>
+  <button id="closeDailyBtn">Cerrar Caja Diaria</button>
+
 <script src="/js/boxupdate.js"></script>
+<script src="/js/dailyupdate.js"></script>

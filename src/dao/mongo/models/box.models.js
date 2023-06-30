@@ -8,13 +8,13 @@ const BoxSchema = new mongoose.Schema({
 		default: 0
 	},
 	dailySolds: [{
-		date:{
-			type: Date,
-			default: Date.now
-		},
 		amount:{
 			type: Number,
 			default: 0
+		},
+		date:{
+			type: Date,
+			default: Date.now
 		}
 	}],
 	monthlySold: [{

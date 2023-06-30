@@ -2,7 +2,7 @@ document.getElementById('updateForm').addEventListener('submit', function(event)
   event.preventDefault();
 
   const price = parseFloat(document.getElementById('price').value);
-  const bid = '6454900a10d40188e7499c29';
+  const bid = '649f1d1e487f581e1e53370d';
 
 	const url = `http://localhost:8080/api/box/${bid}`
 	const method = 'PATCH'

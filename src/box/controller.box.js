@@ -13,6 +13,7 @@ router.get('/'/* , privateAccess */,async(req,res)=>{
       daily : totalBox[0].dailySolds,
       monthly : totalBox[0].monthlySold
     }
+    console.log(data)
 
     res.render('box.handlebars', data)
   } catch (error) {
@@ -20,17 +21,24 @@ router.get('/'/* , privateAccess */,async(req,res)=>{
   }
 })
 
-/* router.post('/post', async (req, res)=>{
+router.post('/post', async (req, res)=>{
   const acc = 0
-  const dailySolds = 0
-  const monthlySold = 0
+  const dailySolds ={
+    amount : 0,
+    date: new Date()
+  }
+  const monthlySold = {
+    amount: 0,
+    date: new Date()
+  }
+  console.log(dailySolds, monthlySold)
   try {
     const box = await Box.create({acc, dailySolds, monthlySold})
     res.status(201).json({msj: box})
   } catch (error) {
     res.status(500).json({msj: error})
   }
-}) */
+})
 
 router.patch('/:bid', async(req, res)=>{
   const {price} = req.body
@@ -57,7 +65,7 @@ router.patch('/:bid/daily', privateAccess,async(req, res)=>{
     const update = {
       $push: {
         dailySolds: {
-          $each: [{ sale, date: today }],
+          $each: [{ amount: sale, date: today }],
           $sort: { date: -1 }
         }
       },
@@ -68,6 +76,7 @@ router.patch('/:bid/daily', privateAccess,async(req, res)=>{
     res.status(200).json({ msj: updatedBox });
   } catch (error) {
     res.status(500).json({ msj: error });
+    console.log(error)
   }
 })
 module.exports = router
