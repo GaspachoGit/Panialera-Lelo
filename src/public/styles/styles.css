@@ -168,3 +168,73 @@ h3{
   font-size: 1.2rem;
 }
 
+.box-title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.total-sold {
+  color: #666;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+#updateForm {
+  margin-top: 10px;
+}
+
+.price-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.price-input {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.update-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.daily-sales,
+.monthly-sales {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.daily-sales li,
+.monthly-sales li {
+  margin-bottom: 5px;
+}
+
+.section-title {
+  color: #666;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.close-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #FF4500;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+.box-div{
+  margin-left: 15px;
+  margin-right: 25%;
+}

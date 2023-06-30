@@ -79,4 +79,33 @@ router.patch('/:bid/daily', privateAccess,async(req, res)=>{
     console.log(error)
   }
 })
+
+router.patch('/:bid/monthly', privateAccess, async (req, res) => {
+  const filter = req.params.bid;
+
+  try {
+    const box = await Box.findById(filter);
+    const dailySales = box.dailySolds;
+    const monthlyTotal = dailySales.reduce((total, sale) => total + sale.amount, 0);
+
+    const update = {
+      $push: {
+        monthlySold: {
+          amount: monthlyTotal,
+          date: new Date(),
+        },
+      },
+      $set: {
+        acc: 0,
+        dailySolds: [],
+      },
+    };
+
+    const updatedBox = await Box.findOneAndUpdate({ _id: filter }, update, { new: true });
+    res.status(200).json({ msj: updatedBox });
+  } catch (error) {
+    res.status(500).json({ msj: error });
+  }
+});
+
 module.exports = router

@@ -1,20 +1,31 @@
-<h1>BOX</h1>
+ <h1 class="box-title">BOX</h1>
 
-<p>{{this.box}}</p>
+<div class="box-div">
+  <h4 class="total-sold">Total vendido hoy: {{this.box}}$</h4>
 
-<form id="updateForm">
-	<label for="price">Precio:</label>
-	<input type="number" id="price" name="price">
-	<button type="submit">Actualizar</button>
-</form>
+  <form id="updateForm">
+    <label for="price" class="price-label">Precio:</label>
+    <input type="number" id="price" name="price" class="price-input">
+    <button type="submit" class="update-button">Actualizar</button>
+  </form>
 
- <h3>Ventas Diarias:</h3>
-  <ul>
+  <h4 class="section-title">Saldo Diario:</h4>
+  <ul class="daily-sales">
     {{#each daily}}
     <li>Fecha: {{this.date}}, Venta: {{this.amount}}</li>
     {{/each}}
   </ul>
-  <button id="closeDailyBtn">Cerrar Caja Diaria</button>
+  <button id="closeDailyBtn" class="close-button">Cerrar caja Diaria</button>
 
-<script src="/js/boxupdate.js"></script>
-<script src="/js/dailyupdate.js"></script>
+  <h4 class="section-title">Saldo mensual:</h4>
+  <ul class="monthly-sales">
+    {{#each monthly}}
+    <li>Fecha: {{this.date}}, Venta: {{this.amount}}</li>
+    {{/each}}
+  </ul>
+  <button id="closeMonthlyBtn" class="close-button">Cerrar caja mensualmente</button>
+</div>
+
+  <script src="/js/boxupdate.js"></script>
+  <script src="/js/dailyupdate.js"></script>
+  <script src="/js/monthlyupdate.js"></script>
