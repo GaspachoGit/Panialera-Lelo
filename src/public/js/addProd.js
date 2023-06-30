@@ -15,6 +15,9 @@ form.addEventListener("submit", (e) => {
 
   fetch(url, { headers, method, body })
     .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+      console.log(data)
+      location.reload();
+    })
     .catch((error) => console.log(error));
 });
