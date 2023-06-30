@@ -61,7 +61,6 @@ router.patch('/:pid', privateAccess,async(req,res)=>{
 
   try {
     await Product.updateProduct(filter, {$set:campos}) 
-    console.log('producto actualizado correctamente')
     res.send('Product updated')
   } catch (error) {
     console.log(error)

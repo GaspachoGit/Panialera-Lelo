@@ -7,13 +7,19 @@ const router = Router()
 router.get('/'/* , privateAccess */,async(req,res)=>{
   try {
     const totalBox = await Box.find()
-    res.status(200).json({msj: totalBox})
+
+    const box = totalBox[0].acc
+    const daily = totalBox[0].dailySolds
+    const monthly = totalBox[0].monthlySold
+
+    console.log(diario)
+    res.render('box.handlebars', {box})
   } catch (error) {
     res.status(500).json({msj: error.message})
   }
 })
 
-router.post('/post', /* privateAccess, */async (req, res)=>{
+/* router.post('/post', async (req, res)=>{
   const acc = 0
   const dailySolds = 0
   const monthlySold = 0
@@ -23,7 +29,7 @@ router.post('/post', /* privateAccess, */async (req, res)=>{
   } catch (error) {
     res.status(500).json({msj: error})
   }
-})
+}) */
 
 router.patch('/:bid', async(req, res)=>{
   const {price} = req.body
