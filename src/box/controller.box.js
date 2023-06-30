@@ -8,12 +8,13 @@ router.get('/'/* , privateAccess */,async(req,res)=>{
   try {
     const totalBox = await Box.find()
 
-    const box = totalBox[0].acc
-    const daily = totalBox[0].dailySolds
-    const monthly = totalBox[0].monthlySold
+    const data = {
+      box : totalBox[0].acc,
+      daily : totalBox[0].dailySolds,
+      monthly : totalBox[0].monthlySold
+    }
 
-    console.log(diario)
-    res.render('box.handlebars', {box})
+    res.render('box.handlebars', data)
   } catch (error) {
     res.status(500).json({msj: error.message})
   }
