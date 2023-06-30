@@ -2,15 +2,18 @@
 
 
 nav{
-  background-color: rgb(170, 244, 106);
+  background-color: #FF7683;
   font-size: 5rem;
   top: 0;
   width: 100%;
 }
-body{
-  background-color: rgb(237, 237, 237);
-  margin: 0;
+
+body {
+  background-color: #FF7683;
+  font-family: Arial, sans-serif;
+  margin: 0
 }
+
 h1{
   display: flex;
   justify-content: center;
@@ -237,4 +240,51 @@ h3{
 .box-div{
   margin-left: 15px;
   margin-right: 25%;
+}
+
+
+.title {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 24px;
+  color: #333;
+}
+
+.form-container {
+  max-width: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
 }
