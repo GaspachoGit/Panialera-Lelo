@@ -25,7 +25,7 @@ router.get("/", privateAccess, async (req, res) => {
 
   try {
     const products = await Product.paginate(query, options);
-    const productsMapped = products.docs.map(({name, description, unitPrice, type, _id, img, stock, boxQuantity})=>({
+    const productsMapped = products.docs.map(({name, description, unitPrice, type, _id, img, stock, boxQuantity, salePrice})=>({
       id: _id,
       name,
       description,
@@ -33,7 +33,8 @@ router.get("/", privateAccess, async (req, res) => {
       type,
       img,
       stock,
-      boxQuantity
+      boxQuantity,
+      salePrice
     }))
     res.render('products.handlebars',{ productsMapped, user });
   } catch (error) {

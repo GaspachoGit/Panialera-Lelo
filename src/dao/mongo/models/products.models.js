@@ -40,6 +40,7 @@ const productSchema = mongoose.Schema({
   unitPrice: Number,
   boxQuantity: Number,
   stock: Number,
+  salePrice:Number
 });
 
 mongoose.plugin(mongoosePaginate);
