@@ -1,0 +1,22 @@
+ <h1>Detalles del producto</h1>
+ <div class="product-details">
+    <div class="product-image">
+      <img src="{{this.img}}" alt="Product Image">
+    </div>
+    <div class="product-data">
+      <h2>{{name}}</h2>
+      <p>{{description}}</p>
+      <p><strong>Tipo:</strong> {{this.type}}</p>
+      <p><strong>Marca:</strong> {{brand}}</p>
+      <p><strong>Tamaño:</strong> {{size}}</p>
+      <p><strong>Precio Unitario:</strong> ${{unitPrice}}</p>
+      <p><strong>Cantidad por Caja:</strong> {{boxQuantity}}</p>
+      <p><strong>Stock:</strong> {{stock}}</p>
+      <p><strong>Precio de Venta:</strong> ${{salePrice}}</p>
+      <div class="buttons">
+        <a href="http://localhost:8080/api/products/{{id}}/update"><button class="edit-button">Editar Producto</button></a>
+        <button class="btn-delete" data-product-id="{{this.id}}">Eliminar Producto</button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/js/deleteOneProd.js"></script>

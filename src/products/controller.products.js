@@ -42,6 +42,8 @@ router.get("/", privateAccess, async (req, res) => {
   }
 });
 
+
+
 router.post("/", privateAccess,async (req, res) => {
   const product = req.body
   try {
@@ -97,5 +99,15 @@ router.get('/:pid/update', privateAccess,async(req, res)=>{
 
 router.get('/addProds', async (req, res)=>{
   res.render('addProduct.handlebars')
+})
+
+router.get('/:pid', privateAccess , async (req, res)=>{
+  const {pid} = req.params
+  try {
+    const prod = await Product.findOne(pid)
+    res.render('oneProd.handlebars', prod)
+  } catch (error) {
+    res.status(400).json({msj: error.message})
+  }
 })
 module.exports = router;

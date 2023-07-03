@@ -288,3 +288,57 @@ h3{
 .submit-button:hover {
   background-color: #0056b3;
 }
+
+.product-details {
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+  width: 95%;
+  background-color: #FF7683;
+  border-radius: 10px;
+}
+
+.product-image {
+  width: 30%;
+  margin-left: 40px;
+  border-radius: 15px;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.product-data {
+  width: 70%;
+  margin-left: 50px;
+  font-size: 160%;
+}
+
+.product-data h2 {
+  font-size: 24px;
+}
+
+.product-data p {
+  margin-bottom: 10px;
+}
+
+.product-data strong {
+  font-weight: bold;
+}
+.edit-button {
+  background-color: #4287f5;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background-color: #f54242;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

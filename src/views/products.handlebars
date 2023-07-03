@@ -54,13 +54,11 @@
         <p>Precio al por mayor: {{this.salePrice}}</p>
         <p>Cantidad por caja: {{this.boxQuantity}} gr/u</p>
         <p>Stock: {{this.stock}}</p>
-        <button class="btn-delete" data-product-id="{{this.id}}"> Eliminar producto</button>
-        <a href="http://localhost:8080/api/products/{{id}}/update"><button>Editar producto</button></a>
+        <a href="http://localhost:8080/api/products/{{id}}"><button>Detalles del producto</button></a>
       </li>
     </div>
   {{/each}}
 </div>
 
-<script src="/js/products.js"></script>
-<script type="module" src="/js/deleteOneProd.js"></script>
+{{!-- <script src="/js/products.js"></script>--}}
 
