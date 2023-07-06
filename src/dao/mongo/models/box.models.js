@@ -7,6 +7,16 @@ const BoxSchema = new mongoose.Schema({
 		type: Number,
 		default: 0
 	},
+	daySold: [{
+		amount:{
+			type: Number,
+			default: 0
+		},
+		date:{
+			type: Date,
+			default: Date.now
+		}
+	}],
 	dailySolds: [{
 		amount:{
 			type: Number,

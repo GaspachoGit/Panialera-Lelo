@@ -1,4 +1,4 @@
- <h1 class="box-title">BOX</h1>
+ <h1 class="box-title">Ventas Diarias</h1>
 
 <div class="box-div">
   <h4 class="total-sold">Total vendido hoy: {{this.box}}$</h4>
@@ -8,6 +8,13 @@
     <input type="number" id="price" name="price" class="price-input">
     <button type="submit" class="update-button">Actualizar</button>
   </form>
+
+  <h4 class="section-title">Ventas en el día:</h4>
+  <ul class="daily-sales">
+    {{#each day}}
+    <li>Fecha: {{this.date}}, Venta: {{this.amount}}</li>
+    {{/each}}
+  </ul>
 
   <h4 class="section-title">Saldo Diario:</h4>
   <ul class="daily-sales">

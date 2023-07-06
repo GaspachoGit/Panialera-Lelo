@@ -24,7 +24,7 @@ router.get("/", privateAccess, async (req, res) => {
   }
 
   try {
-    const products = await Product.paginate(query, options);
+    const products = await Product.paginate(query, options); //proximamente: aquí hacer la convercion de la cantidad de ganancia porcentual
     const productsMapped = products.docs.map(({name, description, unitPrice, type, _id, img, stock, boxQuantity, salePrice,size})=>({
       id: _id,
       name,
