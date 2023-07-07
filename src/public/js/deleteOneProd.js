@@ -30,8 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
               Swal.fire('¡Eliminado!', 'El producto ha sido eliminado.', 'success')
                 .then(() => {
                   // Actualizar la página
-                  location.reload();
-                });
+                  window.location.href = 'http://localhost:8080/api/products';                 });
             })
             .catch(error => {
               console.error(error);

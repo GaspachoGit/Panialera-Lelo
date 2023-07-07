@@ -105,9 +105,17 @@ router.get('/addProds', async (req, res)=>{
 
 router.get('/:pid', privateAccess , async (req, res)=>{
   const {pid} = req.params
+
   try {
     const prod = await Product.findOne(pid)
-    res.render('oneProd.handlebars', prod)
+    const prodPuncharse = prod.purchasePrice
+    const unitMargin = prod.unitPriceMargin
+    const saleMargin = prod.salePriceMargin
+
+    const unitPrice = prodPuncharse + (prodPuncharse * (unitMargin/100))
+    const salePrice = prodPuncharse + (prodPuncharse * (saleMargin/100))
+    
+    res.render('oneProd.handlebars',{prod, unitPrice, salePrice})
   } catch (error) {
     res.status(400).json({msj: error.message})
   }
