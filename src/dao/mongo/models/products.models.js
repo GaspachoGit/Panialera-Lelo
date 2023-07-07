@@ -39,7 +39,6 @@ const productSchema = mongoose.Schema({
   img: String,
   unitPrice: Number,
   boxQuantity: Number,
-  stock: Number,
   salePrice:Number
 });
 
