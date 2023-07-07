@@ -1,7 +1,7 @@
 <h1>Editar producto</h1>
 <form id="editForm" class="form-container">
 
-<label for="name" class="form-label">Nombre</label>
+{{!-- <label for="name" class="form-label">Nombre</label>
   <input type="text" name="name"  class="form-input" />
 
   <label for="brand" class="form-label">Marca</label>
@@ -20,7 +20,7 @@
     <option value="G">G</option>
     <option value="XG">XG</option>
     <option value="XXG">XXG</option>
-  </select>
+  </select> --}}
 
   <label for="description" class="form-label">Descripción</label>
   <input type="text" name="description"  class="form-input" />
@@ -28,8 +28,14 @@
   <label for="img" class="form-label">Imagen</label>
   <input type="text" name="img"  class="form-input" />
 
-  <label for="unitPrice" class="form-label">Precio unitario</label>
-  <input type="number" name="unitPrice"  class="form-input" />
+  <label for="purchasePrice" class="form-label">Precio de compra</label>
+  <input type="number" name="purchasePrice"  class="form-input" />
+
+  <label for="unitPriceMargin" class="form-label">Margen de ganancias unitarias</label>
+  <input type="number" name="unitPriceMargin"  class="form-input" />
+
+  <label for="salePriceMargin" class="form-label">Margen de ganancias al por mayor</label>
+  <input type="number" name="salePriceMargin" class="form-input" />
 
   <label for="boxQuantity" class="form-label">Cantidad por caja</label>
   <input type="number" name="boxQuantity"  class="form-input" />
@@ -37,8 +43,6 @@
   <label for="stock" class="form-label">Stock</label>
   <input type="number" name="stock"  class="form-input" />
 
-  <label for="salePrice" class="form-label">Precio al por mayor</label>
-  <input type="number" name="salePrice" required class="form-input" />
 
   <button type="submit" data-product-id="{{_id}} " class="form-button">Editar</button>
 </form>
