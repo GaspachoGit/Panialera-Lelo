@@ -37,9 +37,10 @@ const productSchema = mongoose.Schema({
   name: String,
   description: String,
   img: String,
-  unitPrice: Number,
   boxQuantity: Number,
-  salePrice:Number
+  purchasePrice: Number, // Precio al cual se compró el producto
+  salePriceMargin: Number, // Margen de ganancia para el precio de oferta
+  unitPriceMargin: Number, // Margen de ganancia para el precio unitario
 });
 
 mongoose.plugin(mongoosePaginate);

@@ -15,7 +15,7 @@ router.get("/", privateAccess, async (req, res) => {
 
   const order = orderBy || 'name'
 
-  const limit = perPage || 10
+  const limit = perPage || 150
   
   const options = {
     page: page||1,
@@ -26,15 +26,16 @@ router.get("/", privateAccess, async (req, res) => {
   try {
     const products = await Product.paginate(query, options); //proximamente: aquí hacer la convercion de la cantidad de ganancia porcentual
 
-    const productsMapped = products.docs.map(({name, description, unitPrice, type, _id, img, boxQuantity, salePrice,size})=>({
+    const productsMapped = products.docs.map(({name, description, unitPriceMargin, purchasePrice, type, _id, img, boxQuantity, salePriceMargin ,size})=>({
       id: _id,
       name,
       description,
-      unitPrice,
       type,
       img,
+      purchasePrice,
       boxQuantity,
-      salePrice,
+      unitPrice: purchasePrice + (purchasePrice * (unitPriceMargin/100)),
+      salePrice: purchasePrice + (purchasePrice * (salePriceMargin/100)),
       size
     }))
     res.render('products.handlebars',{ productsMapped, user });

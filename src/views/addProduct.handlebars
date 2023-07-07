@@ -46,8 +46,15 @@
   <label for="img" class="form-label">Imagen</label>
   <input type="text" name="img" required class="form-input" />
 
-  <label for="unitPrice" class="form-label">Precio para ventas</label>
-  <input type="number" name="unitPrice" required class="form-input" />
+  <label for="purchasePrice" class="form-label">Precio de compra</label>
+  <input type="number" name="purchasePrice" required class="form-input" />
+
+  <label for="unitPriceMargin" class="form-label">Margen de ganancias unitario (%)</label>
+  <input type="number" name="unitPriceMargin" required class="form-input" />
+
+  <label for="salePriceMargin" class="form-label">Margen de ganancias al por mayor (%)</label>
+  <input type="number" name="salePriceMargin" required class="form-input" />
+ 
 
   <label for="boxQuantity" class="form-label">Cantidad por caja</label>
   <input type="number" name="boxQuantity" required class="form-input" />
@@ -55,8 +62,6 @@
   <label for="stock" class="form-label">Stock</label>
   <input type="number" name="stock" required class="form-input" />
 
-  <label for="salePrice" class="form-label">Precio al por mayor</label>
-  <input type="number" name="salePrice" required class="form-input" />
 
   <button type="submit" class="form-button">Añadir</button>
 </form>
