@@ -77,7 +77,7 @@ router.delete("/", privateAccess,async (req, res) => {
   res.send("productos eliminados");
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id',privateAccess, async (req, res) => {
   try {
     const productId = req.params.id;
     const deletedProduct = await Product.deleteProductById(productId);

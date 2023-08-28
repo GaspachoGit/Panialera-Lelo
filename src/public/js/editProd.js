@@ -27,7 +27,7 @@ form.addEventListener('submit', e => {
   .then(response => response.json)
   .then(data =>{
     console.log(data)
-    window.location.href = 'http://localhost:8080/api/products'; 
+    location.reload();
 
   })
   .catch(err=> console.log(err))
